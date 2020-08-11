@@ -44,15 +44,13 @@ $ docker-compose down
 
 # build 
 ~~~
-sudo apt-get install qtwayland5
 git clone https://github.com/mapbox/mapbox-gl-native.git -b maps-v1.6.0
 cd mapbox-gl-native/
 
 edit CMakeList.txt L.20
 option(MBGL_WITH_QT "Build Mapbox GL Qt bindings" ON)
 
-
-export MAPBOX_ACCESS_TOKEN=<xxxxx your token>
+export MAPBOX_ACCESS_TOKEN=<your token>
 mkdir build
 cd build/
 git submodule update --init --recursive
