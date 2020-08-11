@@ -95,7 +95,7 @@ RUN chmod +x /home/${DOCKER_USER}/.local/bin/flutter_init.sh
 RUN chown -R ${DOCKER_USER}:${DOCKER_USER} /home/${DOCKER_USER}
 
 # Mapbox SDK for Qt 
-RUN apt-get install -y qt5-default
+RUN apt-get install -y qt5-default qtwayland5
 RUN apt-get install -y curl git build-essential zlib1g-dev automake \
                     libtool xutils-dev make cmake pkg-config python-pip \
                     libcurl4-openssl-dev libpng-dev libsqlite3-dev libllvm3.9

@@ -42,37 +42,22 @@ $ docker-compose exec app /bin/bash
 $ docker-compose down
 ~~~
 
-# In Docker
+# build 
 ~~~
-$ flutter_init.sh
+sudo apt-get install qtwayland5
+git clone https://github.com/mapbox/mapbox-gl-native.git -b maps-v1.6.0
+cd mapbox-gl-native/
+
+edit CMakeList.txt L.20
+option(MBGL_WITH_QT "Build Mapbox GL Qt bindings" ON)
+
+
+export MAPBOX_ACCESS_TOKEN=<xxxxx your token>
+mkdir build
+cd build/
+git submodule update --init --recursive
+cmake ..
+make
+./mbgl-qt -platform wayland
 ~~~
 
-# sample run test
-~~~
-$ cd work
-$ git clone https://github.com/google/flutter-desktop-embedding.git
-$ cd flutter-desktop-embedding/testbed
-$ flutter run
-~~~
-
-# build & exec test 
-~~~
-$ flutter build linux
-$ cd build/linux/debug/bundle/
-$ ./testbed
-~~~
-
-# weston & flutter wayland
-- see flutter_wayland
-  https://github.com/HidetoKimura/flutter_wayland
-~~~
-$ weston --width 800 --height 600 &
-$ layer-add-surfaces 1000 10 &
-$ ./flutter_wayland ../external/asset_bundle/testbed
-~~~
-
-# Docker save & load
-~~~
-docker save docker_sdk_app | gzip -c > docker_sdk.tar.gz
-cat docker_sdk.tar.gz | gzip -d | docker load
-~~~
