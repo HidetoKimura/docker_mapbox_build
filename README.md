@@ -44,18 +44,13 @@ $ docker-compose down
 
 # build 
 ~~~
-git clone https://github.com/mapbox/mapbox-gl-native.git -b maps-v1.6.0
+git clone https://github.com/HidetoKimura/mapbox-gl-native.git -b qt-app-unixsocket
 cd mapbox-gl-native/
-
-edit CMakeList.txt L.20
-option(MBGL_WITH_QT "Build Mapbox GL Qt bindings" ON)
-
-export MAPBOX_ACCESS_TOKEN=<your token>
 mkdir build
 cd build/
 git submodule update --init --recursive
-cmake ..
-make
+cmake -G Ninja ..
+ninja
 QT_WAYLAND_DISABLE_WINDOWDECORATION=1 ./mbgl-qt -platform wayland
 ~~~
 

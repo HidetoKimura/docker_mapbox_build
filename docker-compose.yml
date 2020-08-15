@@ -10,9 +10,8 @@ services:
     privileged: true
     tty: true
     command: /bin/bash
-    environment:
-      - DISPLAY=${LOCAL_DISPLAY}
-      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
+    env_file:
+      - ./settings/default.env  
     devices:
      - "/dev/dri:/dev/dri"
      - "/dev/snd:/dev/snd"
