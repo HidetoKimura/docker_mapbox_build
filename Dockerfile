@@ -108,6 +108,7 @@ RUN apt-get install -y libxi-dev libglu1-mesa-dev x11proto-randr-dev \
 
 RUN apt-get install -y libjpeg-dev libglfw3-dev
 RUN apt-get install -y libssl1.0-dev nodejs-dev node-gyp nodejs npm
+RUN apt-get install -y rapidjson-dev
 
 USER ${DOCKER_USER}
 WORKDIR /home/${DOCKER_USER}

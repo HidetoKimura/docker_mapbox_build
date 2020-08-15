@@ -56,6 +56,6 @@ cd build/
 git submodule update --init --recursive
 cmake ..
 make
-./mbgl-qt -platform wayland
+QT_WAYLAND_DISABLE_WINDOWDECORATION=1 ./mbgl-qt -platform wayland
 ~~~
 
